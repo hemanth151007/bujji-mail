@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2d">
+  <meta name="description" content="Private, browser-only email triage from local EML files.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Bujji Mail — Private email triage</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Bujji Mail home"><span class="brand-mark" aria-hidden="true">B</span><span>Bujji<span class="brand-light"> Mail</span></span></a>
+    <span class="privacy-chip"><span aria-hidden="true">●</span> Local-only processing</span>
+  </header>
+  <main id="main" class="shell">
+    <section class="hero">
+      <p class="eyebrow">YOUR EMAIL, YOUR DEVICE</p>
+      <h1>Make your inbox<br><span>feel manageable.</span></h1>
+      <p class="hero-copy">Import email files to surface likely action items and urgency cues. Your messages stay in this browser tab.</p>
+      <div class="privacy-note"><span aria-hidden="true">⌁</span><div><strong>Private by design</strong><p>No account connection, server upload, AI API, analytics, or persistent email storage.</p></div></div>
+    </section>
+    <section class="import-card" aria-labelledby="import-heading">
+      <div class="section-heading"><div><p class="eyebrow">STEP 01</p><h2 id="import-heading">Bring in your emails</h2></div><span class="file-pill">.eml files</span></div>
+      <label id="drop-zone" class="drop-zone" for="file-input">
+        <span class="upload-icon" aria-hidden="true">↑</span>
+        <strong>Choose email files</strong>
+        <span>or drag and drop .eml files here</span>
+        <small>Up to 200 files · 2 MiB each · 64 MiB total</small>
+      </label>
+      <input id="file-input" class="visually-hidden" type="file" accept=".eml,message/rfc822" multiple>
+      <p id="import-status" class="status-line" role="status" aria-live="polite">No files loaded yet.</p>
+      <div class="button-row"><button id="clear-button" class="button button-quiet" type="button" disabled>Clear session</button></div>
+    </section>
+    <section id="results-section" class="results-section" aria-labelledby="results-heading" hidden>
+      <div class="section-heading results-heading"><div><p class="eyebrow">STEP 02</p><h2 id="results-heading">Your email overview</h2></div><span id="result-count" class="file-pill">0 messages</span></div>
+      <div class="stats-grid">
+        <article class="stat-card"><span>Loaded</span><strong id="stat-loaded">0</strong><small>emails parsed</small></article>
+        <article class="stat-card"><span>Action cues</span><strong id="stat-actions">0</strong><small>may need a reply or task</small></article>
+        <article class="stat-card"><span>Urgency cues</span><strong id="stat-urgent">0</strong><small>review soon</small></article>
+      </div>
+      <div class="filter-row"><label for="filter-select">Show</label><select id="filter-select"><option value="all">All messages</option><option value="action">Action cues</option><option value="urgent">Urgency cues</option></select><label class="search-label" for="search-input">Search</label><input id="search-input" type="search" placeholder="Sender, subject, or text" autocomplete="off"></div>
+      <div id="message-list" class="message-list" aria-live="polite"></div>
+      <div id="rejected-section" class="rejected-section" hidden><h3>Files not imported</h3><ul id="rejected-list"></ul></div>
+    </section>
+    <section class="how-section">
+      <p class="eyebrow">BUILT FOR CONTROL</p><h2>Helpful cues, not decisions made for you.</h2>
+      <div class="feature-grid">
+        <article><span class="feature-number">01</span><h3>Action signals</h3><p>Highlights language that may indicate a request, deadline, or follow-up.</p></article>
+        <article><span class="feature-number">02</span><h3>Urgency signals</h3><p>Flags explicit priority language and time-sensitive phrases for your review.</p></article>
+        <article><span class="feature-number">03</span><h3>Session-only</h3><p>Clearing the session or closing the tab removes imported messages from the app.</p></article>
+      </div>
+      <p class="disclaimer">This is a heuristic prototype, not an email security scanner. Results can be wrong or incomplete. Verify the original message before taking action, opening links, or sending money.</p>
+    </section>
+  </main>
+  <footer><span>Bujji Mail</span><span>Private by default · No backend</span><a href="https://github.com/hemanth151007/bujji-mail" rel="noreferrer">View source</a></footer>
+</body>
+</html>
