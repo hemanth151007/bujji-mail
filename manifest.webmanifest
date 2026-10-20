@@ -1,0 +1,13 @@
+{
+  "name": "Bujji Mail — Private Email Triage",
+  "short_name": "Bujji Mail",
+  "description": "Private browser-only email triage from local EML files.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#101b2d",
+  "icons": [
+    {"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
+  ]
+}
