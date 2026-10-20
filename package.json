@@ -1,0 +1,13 @@
+{
+  "name": "bujji-mail",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Privacy-first browser-only email triage prototype",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
