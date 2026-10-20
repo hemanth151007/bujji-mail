@@ -1,6 +1,6 @@
 # Bujji Mail
 
-A privacy-first, browser-based email triage prototype. Import `.eml` files and inspect locally generated summaries, action cues, and urgency cues.
+A privacy-first, browser-based email triage prototype. Import `.eml` files and inspect locally generated action cues and urgency cues.
 
 ## Privacy and scope
 
@@ -10,6 +10,10 @@ A privacy-first, browser-based email triage prototype. Import `.eml` files and i
 - This prototype reads `.eml` files only. It does not connect to an inbox, send email, extract attachments, or provide a security verdict.
 - Heuristic action/urgency cues are suggestions, not guaranteed classifications. Review the original email before acting.
 - Never import confidential mail on a shared or untrusted computer.
+
+## Try a synthetic sample
+
+Download [examples/sample.eml](./examples/sample.eml) and import it into the app. It uses reserved `.test` addresses and contains no real correspondence.
 
 ## Run locally
 
@@ -31,7 +35,7 @@ npm test
 
 ## Deployment
 
-GitHub Actions runs the tests and publishes the static site to GitHub Pages when changes reach `main`. Enable GitHub Pages to use **GitHub Actions** as the build and deployment source if it is not enabled automatically.
+The GitHub Actions workflow runs the parser tests and JavaScript syntax checks, then publishes the static site to GitHub Pages on pushes to `main`. The first deployment may need repository Actions permissions to be enabled by the owner.
 
 ## Project status
 
